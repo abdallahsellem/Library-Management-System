@@ -1,5 +1,6 @@
 import express from 'express';
 import { createBorrower, getBorrowers, deleteBorrower } from '../controllers/borrowerController.js';
+import { borrowerLimiter } from '../middlewares/rateLimiter.js';
 
 const router = express.Router();
 
@@ -41,7 +42,7 @@ router.get('/', getBorrowers);
  *       201:
  *         description: Borrower created
  */
-router.post('/', createBorrower);
+router.post('/', borrowerLimiter, createBorrower);
 
 /**
  * @swagger

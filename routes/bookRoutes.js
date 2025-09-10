@@ -1,5 +1,6 @@
 import express from 'express';
 import { createBook,searchBooks, getBooks, updateBook, deleteBook } from '../controllers/bookController.js';
+import  {bookLimiter}  from '../middlewares/rateLimiter.js';
 
 const router = express.Router();
 
@@ -69,7 +70,7 @@ router.get('/search', searchBooks);
  *       201:
  *         description: Book created
  */
-router.post('/', createBook);
+router.post('/', bookLimiter,createBook);
 
 /**
  * @swagger
