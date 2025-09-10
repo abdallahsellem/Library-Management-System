@@ -48,8 +48,8 @@ PORT=3000
 
 DB_HOST=db
 DB_PORT=5432
-DB_USER=library_user
-DB_PASSWORD=library_pass
+DB_USER=root
+DB_PASSWORD=password
 DB_NAME=library_db
 
 # Basic Authentication
@@ -65,8 +65,6 @@ docker compose up --build
 API → http://localhost:3000
 
 Swagger → http://localhost:3000/api-docs
-
-pgAdmin → http://localhost:5050 (Login: admin@admin.com / admin)
 
 ✅ Sequelize will automatically create the required tables in Postgres.
 
